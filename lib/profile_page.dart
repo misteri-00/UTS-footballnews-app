@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashboard_page.dart'; 
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -9,7 +10,6 @@ class ProfilePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
         child: Column(
           children: [
-            // --- Foto Profil dan Nama ---
             Container(
               decoration: BoxDecoration(
                 color: Colors.green[700],
@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage: AssetImage('assets/profil.jpg'), 
+                    backgroundImage: AssetImage('assets/profil.jpg'),
                   ),
                   const SizedBox(height: 15),
                   const Text(
@@ -50,8 +50,8 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(20),
@@ -103,10 +103,18 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 15),
 
             TextButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.logout, color: Colors.red),
-              label: const Text("Keluar",
-                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                );
+              },
+              icon: const Icon(Icons.arrow_back, color: Colors.green),
+              label: const Text(
+                "Kembali ke Dashboard",
+                style: TextStyle(
+                    color: Colors.green, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
